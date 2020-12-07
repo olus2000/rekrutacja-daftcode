@@ -1,0 +1,3 @@
+login|password
+Kate|pbkdf2:sha256:150000$a9OZK8qR$ca241b69b32381cbbfad78ea4b5960a3dcc7dea3bd25f255ebe22cfc7a29f6d5
+Axel|pbkdf2:sha256:150000$SxaFSXs0$42ab3831d03e88271577d5163c30f5ecb069b907a272d66c42f14e600dfd8252

@@ -2,3 +2,8 @@ instance/
 venv/
 *__pycache__*
 *.pyc
+
+.coverage
+htmlcov/
+result.html
+assets/

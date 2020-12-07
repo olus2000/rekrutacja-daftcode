@@ -5,7 +5,7 @@ from flask import Flask
 
 from rekrutacja import auth
 import rekrutacja.model
-# from rekrutacja.cli import commands
+from rekrutacja.cli import init_db
 from rekrutacja.db import db
 
 
@@ -44,7 +44,7 @@ def create_app(test_config=None):
     app.register_blueprint(auth.bp)
 
     # commandline arguments
-    # app.cli.add_command(new_package)
+    app.cli.add_command(init_db)
 
     return app
 
