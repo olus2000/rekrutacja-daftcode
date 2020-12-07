@@ -3,8 +3,8 @@ import os
 
 from flask import Flask
 
-# from rekrutacja import pages
-# from rekrutacja.model import models
+from rekrutacja import auth
+import rekrutacja.model
 # from rekrutacja.cli import commands
 from rekrutacja.db import db
 
@@ -37,11 +37,11 @@ def create_app(test_config=None):
     def hello():
         return 'Henlo, Warld!'
 
-    # pages
+    # GUI
     # app.register_blueprint(bp.bp)
 
-    # model
-    # app.register_blueprint(product.bp)
+    # API
+    app.register_blueprint(auth.bp)
 
     # commandline arguments
     # app.cli.add_command(new_package)
