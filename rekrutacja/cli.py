@@ -1,4 +1,5 @@
 import csv
+from datetime import datetime
 
 import click
 from flask import current_app
@@ -38,12 +39,12 @@ def init_db(clear, src):
 
         _load_table(src, 'token.csv', lambda row: Token(
             value=row['login'],
-            expires=datetime.strptime(row['expires'], '%Y-%m-%d %H:%M:%S'),
+            expires=datetime.strptime(row['expires'], '%Y-%m-%d %H:%M:%S.%f'),
         ))
 
         _load_table(src, 'message.csv', lambda row: Message(
             id=int(row['id']),
             content=row['content'],
-            edited=datetime.strptime(row['edited'], '%Y-%m-%d %H:%M:%S'),
+            edited=datetime.strptime(row['edited'], '%Y-%m-%d %H:%M:%S.%f'),
             views=int(row['views']),
         ))

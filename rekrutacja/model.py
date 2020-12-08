@@ -1,16 +1,17 @@
 from rekrutacja.db import db
-from enum import Enum
 
 
 class User(db.Model):
     __tablename__ = 'user'
     login = db.Column('login', db.String(64), primary_key=True)
+    # werkzeug.security.generate_password_hash zwraca 94 znaki
     password = db.Column('password', db.String(94), nullable=False)
 
 
 class Token(db.Model):
     __tablename__ = 'token'
-    value = db.Column('value', db.String(256), primary_key=True)
+    # 256 bajtów zakodowanych w base64 to 342 bajty
+    value = db.Column('value', db.String(342), primary_key=True)
     expires = db.Column('expires', db.DateTime(), nullable=False)
 
 

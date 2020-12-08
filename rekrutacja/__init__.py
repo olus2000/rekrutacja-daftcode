@@ -3,7 +3,7 @@ import os
 
 from flask import Flask
 
-from rekrutacja import auth
+from rekrutacja import auth, message
 import rekrutacja.model
 from rekrutacja.cli import init_db
 from rekrutacja.db import db
@@ -42,6 +42,7 @@ def create_app(test_config=None):
 
     # API
     app.register_blueprint(auth.bp)
+    app.register_blueprint(message.bp)
 
     # commandline arguments
     app.cli.add_command(init_db)
