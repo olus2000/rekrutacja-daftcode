@@ -162,6 +162,13 @@ Przykładowa odpowiedź:
 }
 ```
 
+### Błędy
+Aplikacja zwraca następujące kody błędów:
+- 400: Nieodpowiednie dane przesłane z zapytaniem (np. brakuje pól albo zbyt długia treść wiadomości
+- 403: Nieodowiednie lub brakujące dane uwierzytelniające bądź ich brak
+- 404: Nie znaleziono strony
+- inne: Błąd zapytania nieprzewidziany przez dewelopera
+
 ## Dokumentacja GUI
 
 WIP
