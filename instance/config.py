@@ -1,1 +1,2 @@
 SQLALCHEMY_DATABASE_URI = r'sqlite:////{instance}/db.sqlite3'
+SQLALCHEMY_TRACK_MODIFICATIONS = False
