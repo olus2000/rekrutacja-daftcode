@@ -171,7 +171,21 @@ Aplikacja zwraca następujące kody błędów:
 
 ## Dokumentacja GUI
 
-WIP
+### [Widok logowania](https://rekrutacja-daftcode.herokuapp.com/gui/login)
+**/gui/login**
+Stroną główną aplikacji jest strona logowania. Można za jej pomocą uzyskać token uwierzytelniający potrzebny do tworzenia, usuwania i edycji wiadomości albo przejść do konkretnej wiadomości w celu jej odczytania.
+
+### [Widok wiadomości](https://rekrutacja-daftcode.herokuapp.com/gui/0/read)
+**/gui/{message_id}/read**
+Widok pozwalający na odczytanie wiadomości. Zalogowany użytkownik zobaczy tu też opcje edycji bądź usunięcia wiadomości.
+
+### [Widok edycji](https://rekrutacja-daftcode.herokuapp.com/gui/0/edit)
+**/gui/{message_id}/edit**
+Widok pozwalający zalogowanym użytkownikom zmienić treść wiadomości.
+
+### [Widok tworzenia wiadomości](https://rekrutacja-daftcode.herokuapp.com/gui/create)
+**/gui/create**
+Widok pozwalający zalogowanym użytkownikom utworzyć nową wiadomość.
 
 ## Dokumentacja CLI
 
