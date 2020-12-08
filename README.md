@@ -1,6 +1,14 @@
 # rekrutacja-daftcode
 Zadanie rekrutacyjne dla Daftcode. Rozwiązanie składa się z dwóch części: API i przykłądowego interfejsu graficznego służącego pokazaniu funkcjonalności API.
 
+## Instalacja
+W celu uruchomienia należy:
+- pobrać wszystkie wymagania za pomocą `pip install -r requirements.txt`
+- dostosować konfigurację w pliku `/instance/config.py`, w szczególności ustawić adres docelowej bazy danych
+- uruchomić `flask init-db` z odpowiednimi opcjami żeby upewnić się że baza stoi
+- dodać użytkowników za pomocą `flask manage-users` bądź za pomocą pliku .csv w poprzednim kroku
+- uruchomić aplikację za pomocą narzędzia zgodnego z WSGI, w przykładzie użyto `gunicorn wsgi:app --log-file -`
+
 ## Dokumentacja API
 
 Komunikacja z API przebiega za pomocą zapytań RESTowych. Dane przesyłane są w formacie json.
