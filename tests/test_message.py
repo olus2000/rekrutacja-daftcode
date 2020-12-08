@@ -15,9 +15,9 @@ def test_message_read_codes(client, id, code):
 def test_message_read_data(client):
     message = client.get('/0/read').json
     for key, value in {'id': 0,
-                       'content': 'FIRST!!!1!1!',
+                       'content': 'Pierwsza wiadomość',
                        'edited': '2020-10-17 13:46:12.000000',
-                       'views': 6}.items():
+                       'views': 1}.items():
         assert key in message and message[key] == value
 
 
@@ -70,8 +70,8 @@ def test_message_delete_correct(auth, client, app):
     token = auth.token()
     data = client.post('/1/delete', json={'token': token}).json
     for key, val in {'id': 1,
-                     'content': 'You\'ve got to be kidding...',
-                     'views': 500,
+                     'content': 'Druga wiadomość (są indeksowane od zera)',
+                     'views': 0,
                      'edited': '2020-10-19 13:30:59.000000'}.items():
         assert key in data and data[key] == val
     with app.app_context():

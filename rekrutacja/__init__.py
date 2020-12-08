@@ -5,7 +5,7 @@ from flask import Flask, url_for, redirect
 
 from rekrutacja import auth, message, gui
 import rekrutacja.model
-from rekrutacja.cli import init_db
+from rekrutacja.cli import init_db, manage_users
 from rekrutacja.db import db
 
 
@@ -50,6 +50,7 @@ def create_app(test_config=None):
 
     # commandline arguments
     app.cli.add_command(init_db)
+    app.cli.add_command(manage_users)
 
     return app
 

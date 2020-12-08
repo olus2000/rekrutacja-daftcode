@@ -31,14 +31,16 @@
     <div class="uk-navbar-center">
         <h2>{% block header %}{% endblock %}</h2>
     </div>
-    {% if 'token' in session %}
     <div class="uk-navbar-right">
         <ul class="uk-navbar-nav">
-            <li class="uk-navbar-item"><a href="{{ url_for('gui.create') }}">Nowa wiadomość</a></li>
-            <li class="uk-navbar-item"><a href="{{ url_for('gui.unset_token') }}">Wyloguj</a></li>
+            {% if 'token' in session %}
+                <li class="uk-navbar-item"><a href="{{ url_for('.create') }}">Nowa wiadomość</a></li>
+                <li class="uk-navbar-item"><a href="{{ url_for('.unset_token') }}">Wyloguj</a></li>
+            {% else %}
+                <li class="uk-navbar-item"><a href="{{ url_for('.login') }}">Zaloguj się</a></li>
+            {% endif %}
         </ul>
     </div>
-    {% endif %}
 </nav>
 <section class="content">
 {% block content %}{% endblock %}
