@@ -198,3 +198,13 @@ Utwórz potrzebne tabele w bazie danych (nie tworzy tych które już istnieją)
 **--clear**/**--no-clear** - Wyczyść bazę i utwórz tabele od zera. Domyślnie: **--no-clear**
 
 **--src__=PATH** - Dodaj do bazy rekordy z plików .csv znajdujących się w folderze PATH. Przykładowy zestaw plików znajduje się w folderze test-db.
+
+`flask manage-users [--add/--delete] -u=LOGIN [-p=PASSWORD]`
+
+Dodaj/usuń użytkownika
+
+**--add**/**--delete** - Precyzuje czy należy dodać czy usunąć użytkownika. Domyślnie: **--add**
+
+**-u** - Nazwa użytkownika do dodania/usunięcia
+
+**-p** - użwyanie z **--add**, hasło dodawanego użytkownika. Ignorowane przy **--delete**.
