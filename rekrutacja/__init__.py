@@ -1,9 +1,9 @@
 # create and configure the app
 import os
 
-from flask import Flask
+from flask import Flask, url_for, redirect
 
-from rekrutacja import auth, message
+from rekrutacja import auth, message, gui
 import rekrutacja.model
 from rekrutacja.cli import init_db
 from rekrutacja.db import db
@@ -36,9 +36,13 @@ def create_app(test_config=None):
     @app.route('/hello')
     def hello():
         return 'Henlo, Warld!'
+    
+    @app.route('/')
+    def index():
+        return redirect(url_for('gui.login'))
 
     # GUI
-    # app.register_blueprint(bp.bp)
+    app.register_blueprint(gui.bp)
 
     # API
     app.register_blueprint(auth.bp)

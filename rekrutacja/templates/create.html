@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block header %}
+{% block title %}Nowa wiadomość{% endblock %}
+{% endblock %}
+
+
+{% block content %}
+<div class='uk-margin-auto uk-margin uk-width-2-3 uk-card uk-card-body uk-card-default'>
+    <div id='flash'></div>
+    <textarea class='uk-textarea uk-margin' id="message_content"></textarea>
+    <div class='uk-grid-small uk-margin' uk-grid>
+        <a href={{ url_for('.login') }}>
+            <button class='uk-button uk-margin' type='button'>
+                Anuluj
+            </button>
+        </a>
+        <a href=#>
+            <button class='uk-button uk-margin' type='button' onclick="create_message()">
+                Utwórz
+            </button>
+        </a>
+    </div>
+</div>
+
+
+<script src='{{ url_for('static', filename='create.js') }}'></script>
+{% endblock %}

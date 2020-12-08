@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    
+    <!-- uikit -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit/dist/css/uikit.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/uikit/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit/dist/js/uikit-icons.min.js"></script>
+
+    <!-- mithril -->
+    <script src='https://unpkg.com/mithril/mithril.js'></script>
+
+</head>
+<body>
+<nav class="uk-navbar-container uk-navbar-transparent uk-dark uk-margin-small-top" uk-navbar>
+    <div class="uk-navbar-left">
+        <form onsubmit="return read_message()" id="read_message_form">
+            <ul class="uk-navbar-nav">
+                <li class="uk-navbar-item">
+                    <input class='uk-input uk-form-width-small' type='text' name='read_message_number'
+                           id='read_message_number' placeholder="Nr wiadomości" required>
+                </li>
+                <li class="uk-navbar-item">
+                    <input class='uk-button uk-button-default' type='submit' value='Idź do wiadomości'>
+                </li>
+            </ul>
+        </form>
+    </div>
+    <div class="uk-navbar-center">
+        <h2>{% block header %}{% endblock %}</h2>
+    </div>
+    {% if 'token' in session %}
+    <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
+            <li class="uk-navbar-item"><a href="{{ url_for('gui.create') }}">Nowa wiadomość</a></li>
+            <li class="uk-navbar-item"><a href="{{ url_for('gui.unset_token') }}">Wyloguj</a></li>
+        </ul>
+    </div>
+    {% endif %}
+</nav>
+<section class="content">
+{% block content %}{% endblock %}
+<script src="{{ url_for('static', filename='base.js') }}"></script>
+{% if 'token' in session %}
+    <script>token = '{{ session.token }}';</script>
+{% endif %}
+</section>
+</body>

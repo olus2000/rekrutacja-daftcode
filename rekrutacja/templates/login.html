@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block header %}
+{% block title %}Login{% endblock %}
+{% endblock %}
+
+{% block content %}
+<div class='uk-margin-auto uk-margin-xlarge-top uk-width-1-4 uk-card uk-card-body uk-card-default'>
+    <div id='flash'>
+        {% if 'token' in session %}
+            Zalogowano!
+        {% endif %}
+    </div>
+    <form onsubmit='return get_token()'>
+        <div class='uk-margin-small'>
+            <label class='uk-form-label' for='login'>Login</label>
+            <input class='uk-input uk-form-width-expand' type='login' name='login' id='login' required>
+        </div>
+        <div class='uk-margin-small'>
+            <label class='uk-form-label' for='password'>Hasło</label>
+            <input class='uk-input uk-form-width-expand' type='password' name='password' id='password' required>
+        </div>
+        <input class='uk-button uk-button-default uk-margin-small' type='submit' value='Log in'/>
+    </form>
+</div>
+
+<script src="{{ url_for('static', filename='login.js') }}"></script>
+{% endblock %}

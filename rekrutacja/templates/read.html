@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block header %}
+Wiadomość nr {% block title %}{{ id }}{% endblock %}
+{% endblock %}
+
+
+{% block content %}
+<div class='uk-margin-auto uk-margin uk-width-2-3 uk-card uk-card-body uk-card-default'>
+    <div class='uk-text-emphasis uk-margin-medium' id="message_content"></div>
+
+    {% if 'token' in session %}
+        <div class='uk-grid-small uk-margin-top' uk-grid>
+            <a href={{ url_for('.edit', id=id) }}>
+                <button class='uk-button uk-margin' type='button'>
+                    Edytuj
+                </button>
+            </a>
+            <a href=/gui/{{ id }}/read>
+                <button class='uk-button uk-margin' type='button' onclick="delete_message()">
+                    Usuń
+                </button>
+            </a>
+        </div>
+    {% endif %}
+</div>
+
+
+<script>var id = {{ id }}</script>
+<script src='{{ url_for('static', filename='read.js') }}'></script>
+{% endblock %}
